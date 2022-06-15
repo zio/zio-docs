@@ -1,0 +1,8 @@
+{
+  "sites": [
+    {
+      "name": "zio-metrics-connectors",
+      "version": "2.0.0"
+    }
+  ]
+}
