@@ -7,27 +7,29 @@ const includeProject = (prjName, project) => {
           name: prjName,
           path: `${__dirname}/node_modules/@atooni/${project}/src/docs/`
         }
-      },
-      {
-        resolve: `gatsby-plugin-page-creator`,
-        options: {
-          path: `${__dirname}/node_modules/@atooni/${project}/src/docs/`
-        }
-      },
+      }
     ]
   )
 }
 
 const sitePlugins = ([
-  // The only plugin we want to see in here is the ZIO theme 
   {
     resolve: `@atooni/gatsby-theme-ziosite`
   },
+  // Use the postcss plugin to configure tailwind as a post processor
+  {
+    resolve: `gatsby-plugin-postcss`,
+    options: {
+      postCssPlugins: [
+        require(`tailwindcss`)
+      ]
+    }
+  },  
   // Configure the file system plugin for generated docs
 ]).concat(
-  includeProject('zmx', 'zio-metrics-connectors'),
-  includeProject('zio1', 'zio-core'),
-  includeProject('zio2', 'zio-core-2')
+  includeProject('zmx', 'zio-metrics-connectors')
+  //includeProject('zio1', 'zio-core'),
+  //includeProject('zio2', 'zio-core-2')
 )
 
 const config = { 
