@@ -1,9 +1,9 @@
 {
   "sites": [
     {
+      "sourceInstance": "zmx",
       "project": "zio-metrics-connectors",
-      "version": "2.0.0",
-      "sourceInstance": "zmx"
+      "version": "2.0.0"
     }
   ]
 }
